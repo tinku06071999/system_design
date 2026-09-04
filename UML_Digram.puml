@@ -1,0 +1,53 @@
+@startuml
+class solid_design_principal.OCP.ShoppingCart {
+~ ProductOcpViolation product
+~ int quantity
+~ Map<ProductOcpViolation,Integer> products
++ void addProduct(ProductOcpViolation,int)
++ int getQuantity()
++ void calculateTotalPrice()
+}
+
+
+class solid_design_principal.OCP.PrintInvoice {
+~ ShoppingCart shoppingCart
++ void print()
+}
+
+
+class solid_design_principal.OCP.ShoppingCartStorage {
+~ ShoppingCart shoppingCart
++ void saveSqlDB()
++ void saveMongoDB()
+}
+
+
+class solid_design_principal.OCP.ProductOcpViolation {
+~ String productName
+~ double productPrice
++ String getProductName()
++ double getProductPrice()
+}
+
+
+interface solid_design_principal.OCP.DBPersistence {
+~ void saveToDB(ShoppingCart)
+}
+
+class solid_design_principal.OCP.SaveToMongoDB {
++ void saveToDB(ShoppingCart)
+}
+
+class solid_design_principal.OCP.SaveToSqlDB {
++ void saveToDB(ShoppingCart)
+}
+
+class solid_design_principal.OCP.Main {
++ {static} void main(String[])
+}
+
+
+
+solid_design_principal.OCP.DBPersistence <|.. solid_design_principal.OCP.SaveToMongoDB
+solid_design_principal.OCP.DBPersistence <|.. solid_design_principal.OCP.SaveToSqlDB
+@enduml
