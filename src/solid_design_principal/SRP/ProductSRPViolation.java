@@ -11,20 +11,32 @@
 // cart and calculating the total price.
 package solid_design_principal.SRP;
 
-public class Product {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProductSRPViolation {
     String productName;
     double productPrice;
 
-    public Product(String productName, double productPrice) {
+    public ProductSRPViolation(String productName, double productPrice) {
         this.productName = productName;
         this.productPrice = productPrice;
     }
 }
 class shoppingCart {
-    Product product;
+    ProductSRPViolation product;
     int quantity;
 
-    public shoppingCart(Product product, int quantity) {
+    List<ProductSRPViolation>products = new ArrayList<>();
+
+    public void addProduct(ProductSRPViolation product) {
+        products.add(product);
+    }
+    public void removeProduct(ProductSRPViolation product) {
+        products.remove(product);
+    }
+
+    public shoppingCart(ProductSRPViolation product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }
@@ -32,11 +44,16 @@ class shoppingCart {
     public double calculateTotalPrice() {
         return product.productPrice * quantity;
     }
+
+    // SRP violation: this method is not related to the responsibility of the shoppingCart class, so it should be moved to a separate class.
+    // SRP violation: one class should have only one reason to change, and in this case, the shoppingCart class has multiple reasons to change, so it violates the SRP principle.
     public void printInvoice() {
         System.out.println("Product: " + product.productName);
         System.out.println("Quantity: " + quantity);
         System.out.println("Total Price: " + calculateTotalPrice());
     }
+
+    // SRP violation: this method is not related to the responsibility of the shoppingCart class, so it should be moved to a separate class.
     public void saveDB() {
         // code to save invoice to database
     }
