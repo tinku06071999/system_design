@@ -1,0 +1,70 @@
+@startuml
+interface solid_design_principal.InterfaceSegregationPrincipal.Shape3D {
+~ double area()
+~ double volume()
+}
+
+interface solid_design_principal.InterfaceSegregationPrincipal.Shape2D {
+~ double area()
+}
+
+interface solid_design_principal.InterfaceSegregationPrincipal.Shape {
+~ double area()
+~ double volume()
+}
+
+class solid_design_principal.InterfaceSegregationPrincipal.SquareISPViolation {
+- double side
++ double area()
++ double volume()
+}
+
+
+class solid_design_principal.InterfaceSegregationPrincipal.RectangleISPViolation {
+- double length
+- double width
++ double area()
++ double volume()
+}
+
+
+class solid_design_principal.InterfaceSegregationPrincipal.Sqaure {
+- double side
++ double area()
+}
+
+
+class solid_design_principal.InterfaceSegregationPrincipal.Cube {
+- double side
++ double area()
++ double volume()
+}
+
+
+class solid_design_principal.InterfaceSegregationPrincipal.Rectangle {
+- double length
+- double width
++ double area()
+}
+
+
+class solid_design_principal.InterfaceSegregationPrincipal.CubeISPViolation {
+- double side
++ double area()
++ double volume()
+}
+
+
+class solid_design_principal.InterfaceSegregationPrincipal.Main {
++ {static} void main(String[])
+}
+
+
+
+solid_design_principal.InterfaceSegregationPrincipal.Shape <|.. solid_design_principal.InterfaceSegregationPrincipal.SquareISPViolation
+solid_design_principal.InterfaceSegregationPrincipal.Shape <|.. solid_design_principal.InterfaceSegregationPrincipal.RectangleISPViolation
+solid_design_principal.InterfaceSegregationPrincipal.Shape2D <|.. solid_design_principal.InterfaceSegregationPrincipal.Sqaure
+solid_design_principal.InterfaceSegregationPrincipal.Shape3D <|.. solid_design_principal.InterfaceSegregationPrincipal.Cube
+solid_design_principal.InterfaceSegregationPrincipal.Shape2D <|.. solid_design_principal.InterfaceSegregationPrincipal.Rectangle
+solid_design_principal.InterfaceSegregationPrincipal.Shape <|.. solid_design_principal.InterfaceSegregationPrincipal.CubeISPViolation
+@enduml
