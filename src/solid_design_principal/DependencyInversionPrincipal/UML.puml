@@ -1,0 +1,35 @@
+@startuml
+class solid_design_principal.DependencyInversionPrincipal.SQLDB {
++ void saveToDB()
+}
+
+interface solid_design_principal.DependencyInversionPrincipal.DBPersistence {
+~ void saveToDB()
+}
+
+class solid_design_principal.DependencyInversionPrincipal.SaveToMongoDB {
++ void saveToDB()
+}
+
+class solid_design_principal.DependencyInversionPrincipal.MongoDB {
++ void saveToDB()
+}
+
+class solid_design_principal.DependencyInversionPrincipal.CasandraDB {
++ void saveToDB()
+}
+
+class solid_design_principal.DependencyInversionPrincipal.SaveToSqlDB {
++ void saveToDB()
+}
+
+class solid_design_principal.DependencyInversionPrincipal.Main {
++ {static} void main(String[])
+}
+
+
+
+solid_design_principal.DependencyInversionPrincipal.DBPersistence <|.. solid_design_principal.DependencyInversionPrincipal.SQLDB
+solid_design_principal.DependencyInversionPrincipal.DBPersistence <|.. solid_design_principal.DependencyInversionPrincipal.MongoDB
+solid_design_principal.DependencyInversionPrincipal.DBPersistence <|.. solid_design_principal.DependencyInversionPrincipal.CasandraDB
+@enduml

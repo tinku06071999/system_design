@@ -1,9 +1,9 @@
 package solid_design_principal.InterfaceSegregationPrincipal;
 
-public class Square implements Shape {
+public class SquareISPViolation implements Shape {
    private double side;
 
-   public Square(double side){
+   public SquareISPViolation(double side){
     this.side = side;
   }
   @Override

@@ -1,10 +1,10 @@
 package solid_design_principal.InterfaceSegregationPrincipal;
 
-public class Rectangle implements Shape{
+public class RectangleISPViolation implements Shape{
     private double length;
     private double width;
 
-    public Rectangle(double length, double widht){
+    public RectangleISPViolation(double length, double widht){
         this.length = length;
         this.width = widht;
     }
