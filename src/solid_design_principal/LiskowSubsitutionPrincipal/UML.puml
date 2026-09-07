@@ -1,0 +1,92 @@
+@startuml
+interface solid_design_principal.LiskowSubsitutionPrincipal.NonWithdrable {
+~ void deposit(double)
+}
+
+class solid_design_principal.LiskowSubsitutionPrincipal.SavingAccount {
+- double balance
+- String accountNumber
++ double getBalance()
++ String getAccountNumber()
++ void deposit(double)
++ void withdraw(double)
+}
+
+
+interface solid_design_principal.LiskowSubsitutionPrincipal.Withdrawable {
+~ void withdraw(double)
+~ void deposit(double)
+}
+
+class solid_design_principal.LiskowSubsitutionPrincipal.FixedAccountLSP {
+- double balance
+- int termInMonths
+- String accountNumber
++ double getBalance()
++ int getTermInMonths()
++ String getAccountNumber()
++ void deposit(double)
+}
+
+
+class solid_design_principal.LiskowSubsitutionPrincipal.FixedAccount {
+- double balance
+- int termInMonths
+- String accountNumber
++ void deposit(double)
++ void withdraw(double)
++ void decreaseTerm()
++ double getBalance()
++ int getTermInMonths()
+}
+
+
+interface solid_design_principal.LiskowSubsitutionPrincipal.Account {
+~ void deposit(double)
+~ void withdraw(double)
+}
+
+class solid_design_principal.LiskowSubsitutionPrincipal.Main {
++ {static} void main(String[])
+}
+
+class solid_design_principal.LiskowSubsitutionPrincipal.CurrentAccountLSP {
+- double balance
+- String accountNumber
++ double getBalance()
++ String getAccountNumber()
++ void deposit(double)
++ void withdraw(double)
+}
+
+
+class solid_design_principal.LiskowSubsitutionPrincipal.SavingAccountLSP {
+- double balance
+- String accountNumber
++ double getBalance()
++ String getAccountNumber()
++ void deposit(double)
++ void withdraw(double)
+}
+
+
+class solid_design_principal.LiskowSubsitutionPrincipal.CurrentAccount {
+- double balance
+- String accountNumber
++ double getBalance()
++ String getAccountNumber()
++ void deposit(double)
++ void withdraw(double)
+}
+
+
+
+
+solid_design_principal.LiskowSubsitutionPrincipal.Account <|.. solid_design_principal.LiskowSubsitutionPrincipal.SavingAccount
+solid_design_principal.LiskowSubsitutionPrincipal.NonWithdrable <|-- solid_design_principal.LiskowSubsitutionPrincipal.Withdrawable
+solid_design_principal.LiskowSubsitutionPrincipal.NonWithdrable <|.. solid_design_principal.LiskowSubsitutionPrincipal.FixedAccountLSP
+solid_design_principal.LiskowSubsitutionPrincipal.Account <|.. solid_design_principal.LiskowSubsitutionPrincipal.FixedAccount
+solid_design_principal.LiskowSubsitutionPrincipal.Withdrawable <|.. solid_design_principal.LiskowSubsitutionPrincipal.CurrentAccountLSP
+solid_design_principal.LiskowSubsitutionPrincipal.Withdrawable <|.. solid_design_principal.LiskowSubsitutionPrincipal.SavingAccountLSP
+solid_design_principal.LiskowSubsitutionPrincipal.Account <|.. solid_design_principal.LiskowSubsitutionPrincipal.CurrentAccount
+@enduml
