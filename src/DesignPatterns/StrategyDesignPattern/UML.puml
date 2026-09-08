@@ -1,0 +1,72 @@
+@startuml
+class DesignPatterns.StrategyDesignPattern.NotNormalWalk {
++ void walk()
+}
+
+abstract class DesignPatterns.StrategyDesignPattern.Robot {
+# WalkableRobot walkableRobot
+# TalkAbleRobot talkAbleRobot
+# FlyAbleRobot flyAbleRobot
+- String name
+~ void walk()
+~ void talk()
+~ void fly()
++ {abstract}void projection()
+}
+
+
+interface DesignPatterns.StrategyDesignPattern.FlyAbleRobot {
+~ void fly()
+}
+
+class DesignPatterns.StrategyDesignPattern.CompanionRobot {
++ void projection()
+}
+
+interface DesignPatterns.StrategyDesignPattern.TalkAbleRobot {
+~ void talk()
+}
+
+class DesignPatterns.StrategyDesignPattern.Walk {
++ void walk()
+}
+
+class DesignPatterns.StrategyDesignPattern.NotNormalTalk {
++ void talk()
+}
+
+class DesignPatterns.StrategyDesignPattern.FlyWithWings {
++ void fly()
+}
+
+class DesignPatterns.StrategyDesignPattern.FlyWithJet {
++ void fly()
+}
+
+interface DesignPatterns.StrategyDesignPattern.WalkableRobot {
+~ void walk()
+}
+
+class DesignPatterns.StrategyDesignPattern.Main {
++ {static} void main(String[])
+}
+
+class DesignPatterns.StrategyDesignPattern.Worker {
++ void projection()
+}
+
+class DesignPatterns.StrategyDesignPattern.NormalTalk {
++ void talk()
+}
+
+
+
+DesignPatterns.StrategyDesignPattern.WalkableRobot <|.. DesignPatterns.StrategyDesignPattern.NotNormalWalk
+DesignPatterns.StrategyDesignPattern.Robot <|-- DesignPatterns.StrategyDesignPattern.CompanionRobot
+DesignPatterns.StrategyDesignPattern.WalkableRobot <|.. DesignPatterns.StrategyDesignPattern.Walk
+DesignPatterns.StrategyDesignPattern.TalkAbleRobot <|.. DesignPatterns.StrategyDesignPattern.NotNormalTalk
+DesignPatterns.StrategyDesignPattern.FlyAbleRobot <|.. DesignPatterns.StrategyDesignPattern.FlyWithWings
+DesignPatterns.StrategyDesignPattern.FlyAbleRobot <|.. DesignPatterns.StrategyDesignPattern.FlyWithJet
+DesignPatterns.StrategyDesignPattern.Robot <|-- DesignPatterns.StrategyDesignPattern.Worker
+DesignPatterns.StrategyDesignPattern.TalkAbleRobot <|.. DesignPatterns.StrategyDesignPattern.NormalTalk
+@enduml
