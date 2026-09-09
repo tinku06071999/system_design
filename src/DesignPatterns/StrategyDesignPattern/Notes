@@ -1,0 +1,13 @@
+Strategy Design Pattern is a behavioral design pattern that allows you to define a family of algorithms,
+encapsulate each one, and make them interchangeable. This pattern enables the algorithm to vary independently from
+clients that use it.
+In the Strategy Design Pattern, you define a common interface for all supported algorithms. Each algorithm is implemented as
+a separate class that adheres to this interface. The client code can then use these algorithms interchangeably without being
+tightly coupled to any specific implementation.
+
+Conclusion:
+            1. Encapsulate what varies and keep it separate from what remain same  .
+            2. Solution to Inheritance is not more Inheritance.
+            3. Composition should be favoured over the Inheritance
+            4. Code to Interface & not to connection/implementation
+            5. Do not Repeat YourSelf (DRY)
